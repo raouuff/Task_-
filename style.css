@@ -1,0 +1,45 @@
+body {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+.sidebar-container {
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+        }
+.card {
+            background-color: #2d2d2d;
+            border-color: #444;
+        }
+.card-body {
+            color: #e0e0e0;
+        }
+.list-group-item {
+            background-color: #2d2d2d;
+            border-color: #444;
+            color: #e0e0e0;
+        }
+.form-control, .form-select {
+            background-color: #3d3d3d;
+            border-color: #555;
+            color: #e0e0e0;
+        }
+.form-control:focus, .form-select:focus {
+            background-color: #3d3d3d;
+            border-color: #666;
+            color: #e0e0e0;
+            box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.1);
+        }
+.text-muted {
+            color: #aaaaaa !important;
+        }
+hr {
+            border-color: #555;
+        }
+.weather-icon {
+            width: 70px;
+            height: 70px;
+            filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
+        }
