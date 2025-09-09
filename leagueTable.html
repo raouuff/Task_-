@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>League Table Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="leagueTable.css">
+    <!-- JQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+</head>
+<body>
+    <div class="main-container">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <i class="bi bi-trophy-fill"></i>
+                SportsHub
+            </div>
+            
+            <div class="nav-links">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#" class="nav-link">Scores</a>
+                <a href="#" class="nav-link">News</a>
+                <a href="#" class="nav-link active">Standings</a>
+                <a href="#" class="nav-link">Teams</a>
+            </div>
+            
+            <div class="navbar-right">
+                <div class="position-relative">
+                    <input type="text" class="search-box" placeholder="Search">
+                    <i class="bi bi-search search-icon"></i>
+                </div>
+                <i class="bi bi-bell text-light"></i>
+                <div class="user-avatar"></div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="content">
+            <h1 class="page-title">League Standings</h1>
+            <p class="last-updated">Updated: December 16, 2024</p>
+            
+            <div class="table-container">
+                <table class="table standings-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Team</th>
+                            <th>MP</th>
+                            <th>W/D/L</th>
+                            <th>Goals</th>
+                            <th>Points</th>
+                        </tr>
+                    </thead>
+                    <tbody id="standingsBody">
+                        <!-- Table data will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="leagueTable.js"></script>
+
+</body>
+</html>
