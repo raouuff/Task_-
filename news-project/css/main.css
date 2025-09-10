@@ -1,0 +1,120 @@
+/* 
+ * Main CSS file for the News Dashboard
+ * Contains core styling for layout and news components
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    min-height: 100vh;
+    background-attachment: fixed;
+}
+
+/* Weather info in the navbar */
+.weather-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 14px;
+}
+
+.main-container {
+    padding: 20px;
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse; /* For RTL layout with sidebar on right */
+    gap: 20px;
+}
+
+.main-content {
+    flex: 1;
+}
+
+.section {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: 28px;
+    margin-bottom: 25px;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.main-content .card {
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.main-content .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.card-image {
+    width: 100%;
+    height: 180px;
+    background: #34495e;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.card-meta {
+    font-size: 13px;
+    color: #bdc3c7;
+    margin-bottom: 12px;
+}
+
+.card-description {
+    font-size: 14px;
+    color: #ecf0f1;
+    line-height: 1.5;
+}
+
+.loading {
+    text-align: center;
+    padding: 60px;
+    color: #bdc3c7;
+    font-size: 16px;
+}
+
+.error {
+    color: #e74c3c;
+    text-align: center;
+    padding: 20px;
+    background: rgba(231,76,60,0.1);
+    border-radius: 8px;
+    margin: 10px 0;
+}
