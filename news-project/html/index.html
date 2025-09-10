@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Custom CSS files -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/leagueTable.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <i class="bi bi-trophy-fill"></i>
+            SportsHub
+        </div>
+        
+        <div class="nav-links">
+            <a href="#" class="nav-link active" onclick="loadSection('home')">Home</a>
+            <a href="#" class="nav-link" onclick="loadSection('live')">Scores</a>
+            <a href="#" class="nav-link" onclick="loadSection('news')">News</a>
+            <a href="leagueTable.html" class="nav-link">Standings</a>
+            <a href="#" class="nav-link" onclick="loadSection('teams')">Teams</a>
+        </div>
+        
+        <div class="navbar-right">
+            <div class="position-relative">
+                <input type="text" class="search-box" placeholder="Search" onkeypress="searchNews(event)">
+                <i class="bi bi-search search-icon"></i>
+            </div>
+            <i class="bi bi-bell text-light"></i>
+            <div class="user-avatar"></div>
+            <div class="weather-info ms-3">
+                <span>🌙</span>
+                <span id="nav-weather-temp">25°C</span>
+                <span id="nav-weather-location">Cairo</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <!-- Sidebar on the right side for RTL layout -->
+        <div class="sidebar">
+            <div class="sidebar-container">
+                <!-- Weather Widget -->
+                <div class="card mb-4 weather-widget">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0">Weather in Cairo</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div>
+                                <h2 id="temperature" class="mb-0">
+                                    <div class="spinner-border spinner-border-sm" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </h2>
+                                <p id="location" class="mb-0">Loading...</p>
+                            </div>
+                            <div id="weather-icon" class="fs-1">
+                                <div class="spinner-grow text-info" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Additional weather info will be injected here -->
+                    </div>
+                </div>
+                
+                <!-- Currency Exchange Widget -->
+                <div class="card mb-4 currency-widget">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Currency Exchange</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>USD (US Dollar)</span>
+                                <span id="usd-rate">
+                                    <div class="spinner-border spinner-border-sm" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>SAR (Saudi Riyal)</span>
+                                <span id="sar-rate">
+                                    <div class="spinner-border spinner-border-sm" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>EGP (Egyptian Pound)</span>
+                                <span id="egp-rate">
+                                    <div class="spinner-border spinner-border-sm" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <hr>
+                        
+                        <!-- Currency Converter -->
+                        <h6>Currency Converter</h6>
+                        <div class="mb-3">
+                            <label for="amount" class="form-label">Amount</label>
+                            <input type="number" class="form-control" id="amount" value="1" min="0" step="0.01">
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                <label for="from-currency" class="form-label">From</label>
+                                <select class="form-select" id="from-currency">
+                                    <option value="USD">USD</option>
+                                    <option value="SAR">SAR</option>
+                                    <option value="EGP">EGP</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <label for="to-currency" class="form-label">To</label>
+                                <select class="form-select" id="to-currency">
+                                    <option value="USD">USD</option>
+                                    <option value="SAR" selected>SAR</option>
+                                    <option value="EGP">EGP</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>Result:</span>
+                                <span id="conversion-result" class="fw-bold">
+                                    <div class="spinner-border spinner-border-sm" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Live Football Matches Widget -->
+                <div class="card mb-4 football-widget">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Live Football Matches</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <ul class="list-group list-group-flush" id="live-matches">
+                            <li class="list-group-item text-center">
+                                <div class="spinner-border spinner-border-sm text-info me-2" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                Loading live matches...
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="section">
+                <div class="section-title">World News</div>
+                <div class="cards-grid" id="politics-news">
+                    <div class="loading">Loading news...</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Business</div>
+                <div class="cards-grid" id="economy-news">
+                    <div class="loading">Loading business news...</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Sports</div>
+                <div class="cards-grid" id="sports-news">
+                    <div class="loading">Loading sports news...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS files -->
+    <script src="../js/api.js"></script>
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

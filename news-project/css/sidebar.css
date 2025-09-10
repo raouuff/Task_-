@@ -1,0 +1,64 @@
+/* 
+ * Sidebar specific styles for the News Dashboard
+ * Contains styles for sidebar widgets (weather, currency, sports)
+ */
+
+.sidebar {
+    width: 350px;
+    min-width: 320px;
+}
+
+.sidebar-container {
+    background-color: rgba(30, 60, 114, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    position: sticky;
+    top: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.sidebar .card {
+    background-color: rgba(42, 82, 152, 0.6);
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: none;
+    cursor: default;
+}
+
+.sidebar .card-body {
+    color: #ffffff;
+}
+
+.sidebar .list-group-item {
+    background-color: rgba(42, 82, 152, 0.6);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.sidebar .form-control, .sidebar .form-select {
+    background-color: rgba(30, 60, 114, 0.7);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.sidebar .form-control:focus, .sidebar .form-select:focus {
+    background-color: rgba(30, 60, 114, 0.9);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.2);
+}
+
+.sidebar .text-muted {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.sidebar hr {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.weather-icon {
+    width: 70px;
+    height: 70px;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
+}

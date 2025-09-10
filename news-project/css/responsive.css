@@ -1,0 +1,42 @@
+/* 
+ * Responsive styles for the News Dashboard
+ * Contains media queries for different screen sizes
+ */
+
+@media (max-width: 992px) {
+    .main-container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        min-width: 100%;
+    }
+    
+    .sidebar-container {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-bar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .nav-links {
+        gap: 15px;
+    }
+    
+    .search-container {
+        margin: 0;
+    }
+    
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-title {
+        font-size: 24px;
+    }
+}
