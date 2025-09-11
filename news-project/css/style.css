@@ -1,0 +1,83 @@
+body {
+  background-color: #010129;
+  color: white;
+}
+
+.sidebar {
+  background-color: #b22222;
+  min-height: 100vh;
+  padding: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.content {
+  padding: 20px;
+}
+
+.card {
+  background-color: #1a1a1a;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 8px;
+}
+
+.card.upcoming {
+  border-left: 4px solid #00ff99;
+}
+
+.card.live {
+  border-left: 4px solid #ff4444;
+}
+
+.card.completed {
+  border-left: 4px solid #00ccff;
+}
+
+.score {
+  font-weight: bold;
+  color: #ff4444;
+}
+
+/* Team logos */
+.team-logo {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+/* Make vs text and match time more visible */
+.text-muted {
+  color: #ffffff !important;
+  opacity: 0.8;
+}
+
+/* Make match time even lighter */
+small.text-muted {
+  color: #ffffff !important;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+/* Completed matches styling */
+.card.completed {
+  border-left: 4px solid #00ccff;
+  background-color: #1a1a1a;
+}
+
+.card.completed .badge {
+  background-color: #00ccff !important;
+  color: #000;
+}
+
+/* Upcoming matches styling */
+.card.upcoming {
+  border-left: 4px solid #00ff99;
+  background-color: #1a1a1a;
+}
+
+.card.upcoming .badge {
+  background-color: #00ff99 !important;
+  color: #000;
+}
